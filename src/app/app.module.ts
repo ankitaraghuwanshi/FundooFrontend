@@ -11,21 +11,24 @@ import {MatInputModule} from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from './Components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule,FlexLayoutModule,
-    MatCheckboxModule,
-    MatButtonModule
+    MatInputModule,FlexLayoutModule,MatCheckboxModule, MatButtonModule,
+   FormsModule,ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
