@@ -14,12 +14,17 @@ import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './Components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

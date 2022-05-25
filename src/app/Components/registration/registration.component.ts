@@ -26,6 +26,18 @@ export class RegistrationComponent implements OnInit {
   }
   onsubmit(){
   console.log(this.registerForm.value);
+  if (this.registerForm.valid) {
+    console.log("valid data", this.registerForm.value);
+    let data = {
+      firstName:this.registerForm.value.firstName,
+      lastName:this.registerForm.value.lastName,
+      email: this.registerForm.value.email,       
+      password: this.registerForm.value.password,
+    }
+  }
+  else {
+    console.log("Invalid Data", this.registerForm.value);
+  }
   }
 }
 

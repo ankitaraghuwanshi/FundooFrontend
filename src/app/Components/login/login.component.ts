@@ -18,8 +18,21 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  OnSubmit() {
-    console.log(this.loginForm.valid)
-
+  OnSubmit(){
+    console.log("inside submit");
+    if(this.loginForm.valid)
+    {
+      console.log("valid Data", this.loginForm.value);
+      let data ={
+        email: this.loginForm.value.email,       
+        password: this.loginForm.value.password,
+      }
+    }
+    else
+    {
+      console.log("invalid data", this.loginForm.value)
+    }
+  
   }
-}
+  }
+
