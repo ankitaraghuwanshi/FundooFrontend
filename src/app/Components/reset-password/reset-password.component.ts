@@ -20,21 +20,12 @@ export class ResetPasswordComponent implements OnInit {
     });
   }
   OnSubmit(){
-    console.log("inside submit");
-    if(this.resetPasswordForm.valid)
-    {
-      console.log("valid Data", this.resetPasswordForm.value);
-      let data ={
-        email: this.resetPasswordForm.value.email,       
-        password: this.resetPasswordForm.value.password,
-      }
-    }
-    else
-    {
-      console.log("invalid data", this.resetPasswordForm.value)
-    }
+    console.log("invalid data", this.resetPasswordForm.value);
   
+  
+  
+  
+    
   }
-  }
-
+}
 

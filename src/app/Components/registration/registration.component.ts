@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/UserService/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,11 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   registerForm !: FormGroup;
-   submitted = false;
+  submitted = false;
+  public showPassword: boolean = false;
 
-   constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private User: UserService) { }
 
-   ngOnInit() {
+  ngOnInit() {
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -24,20 +26,27 @@ export class RegistrationComponent implements OnInit {
     });
 
   }
-  onsubmit(){
-  console.log(this.registerForm.value);
-  if (this.registerForm.valid) {
-    console.log("valid data", this.registerForm.value);
-    let data = {
-      firstName:this.registerForm.value.firstName,
-      lastName:this.registerForm.value.lastName,
-      email: this.registerForm.value.email,       
-      password: this.registerForm.value.password,
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+  onsubmit() {
+    this.submitted = true;
+
+    if (this.registerForm.valid) {
+
+      let reqdata = {
+        firstName: this.registerForm.value.firstName,
+        lastName: this.registerForm.value.lastName,
+        email: this.registerForm.value.email,
+        password: this.registerForm.value.password,
+
+      }
+      this.User.registration(reqdata).subscribe((response: any) => {
+        console.log(response);
+      })
     }
-  }
-  else {
-    console.log("Invalid Data", this.registerForm.value);
-  }
+
   }
 }
 

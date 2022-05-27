@@ -4,6 +4,7 @@
     border: 1px solid rgb(221, 218, 212);
     padding: 30 px;
     border-radius: 5px;
+
    
 }
 .mainblock{
@@ -16,4 +17,9 @@
     letter-spacing: normal;
    
     margin: 0 0 16px;
+}
+::ng-deep.mat-form-field-flex {
+    padding: 0 0.75em 0 0.75em;
+    margin-top: -0.20em;
+    position: relative;
 }

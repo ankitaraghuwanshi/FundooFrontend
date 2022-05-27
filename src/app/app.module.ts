@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ForgotPasswordComponent } from './Components/forgot-password/forgot-pas
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,FlexLayoutModule,MatCheckboxModule, MatButtonModule,
-   FormsModule,ReactiveFormsModule
+   FormsModule,ReactiveFormsModule,
+   HttpClientModule
     
   ],
   providers: [],
