@@ -28,10 +28,10 @@ export class UserService {
         'content-type': 'application/json',
       })
     }
-    return this.httpService.postServive(`User/login/${reqdata.email}/${reqdata.password}`, reqdata,false,header)
+    return this.httpService.postServive(`User/login/${reqdata.email}/${reqdata.password}`, reqdata, false, header)
 
   }
-  forgotPassword(reqdata:any){
+  forgotPassword(reqdata: any) {
     console.log(reqdata);
 
     let header = {
@@ -39,7 +39,20 @@ export class UserService {
         'content-type': 'application/json',
       })
     }
-    return this.httpService.postServive(`User/ForgotPassword/${reqdata.Email}`, reqdata,false,header)
+    return this.httpService.postServive(`User/ForgotPassword/${reqdata.Email}`, reqdata, false, header)
   }
- 
+  resetPassword(reqdata: any, token: any) {
+    console.log(reqdata)
+
+    let header = {
+      headers: new HttpHeaders({
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+
+    }
+    return this.httpService.putServive('User/ChangePassword', reqdata, true, header)
+  }
+
+
 }

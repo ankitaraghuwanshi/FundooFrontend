@@ -18,6 +18,14 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import { MatIconModule } from '@angular/material/icon';
+
+
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegistrationComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,FlexLayoutModule,MatCheckboxModule, MatButtonModule,
    FormsModule,ReactiveFormsModule,
-   HttpClientModule
+   HttpClientModule,
+   MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule
     
   ],
   providers: [],

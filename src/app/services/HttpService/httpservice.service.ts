@@ -11,4 +11,12 @@ export class HttpserviceService {
   postServive(url: string, reqdata: any, token: boolean= false, httpOptions: any={}){
     return this.httpClient.post(this.baseurl+url,reqdata,token && httpOptions)
   }
+
+  getServive(url: string, reqdata: any, token: boolean= false, httpOptions: any={}){
+    return this.httpClient.get(this.baseurl+url, token && httpOptions)
+  }
+
+  putServive(url: string, reqdata: any, token: boolean= false, httpOptions: any={}){
+    return this.httpClient.put(this.baseurl+url, token && httpOptions)
+  }
 }

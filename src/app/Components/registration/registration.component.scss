@@ -1,6 +1,6 @@
 .main{
     display: block;
-    margin: 15px 22%;
+    margin: 15px ;
     border: 1px solid rgb(221, 218, 212);
     padding: 30 px;
     border-radius: 5px;
@@ -19,7 +19,11 @@
     margin: 0 0 16px;
 }
 ::ng-deep.mat-form-field-flex {
-    padding: 0 0.75em 0 0.75em;
+    // padding: 0 0.75em 0 0.75em;
     margin-top: -0.20em;
     position: relative;
+}
+.first{
+width: 100% !important;
+
 }

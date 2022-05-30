@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
   }
   onsubmit() {
     this.submitted = true;
-
+    console.log("api call")
     if (this.registerForm.valid) {
 
       let reqdata = {
