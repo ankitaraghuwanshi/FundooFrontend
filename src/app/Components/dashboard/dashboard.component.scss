@@ -39,7 +39,7 @@
  ::ng-deep .mat-nav-list:focus{
      background-color: rgb(179, 141, 19)
  }
- .mat-nav-list a:focus{background-color: burlywood;}
+ .mat-nav-list a:focus{background-color: rgb(142, 219, 238);}
  mat-sidenav{
      border-left: none;
  }
@@ -51,5 +51,12 @@
      border-top-right-radius: 20px;
     //  border-bottom-right-radius: 20px;
  }
-
  
+
+
+
+.searchbox{
+  width: 800px;
+  height:50px;
+  border:1px solid grey;
+}

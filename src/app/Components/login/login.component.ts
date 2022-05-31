@@ -10,8 +10,10 @@ import { UserService } from 'src/app/services/UserService/user.service';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
-
-  constructor(private formBuilder: FormBuilder, private User: UserService) { }
+ token:any;
+  constructor(private formBuilder: FormBuilder, private User: UserService) {
+    this.token = localStorage.getItem("token")
+   }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -29,8 +31,8 @@ export class LoginComponent implements OnInit {
       }
       this.User.login(reqdata).subscribe((response: any) => {
         console.log(response);
+        localStorage.setItem("token",response.data);
       })
-
     }
 
 

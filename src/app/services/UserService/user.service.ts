@@ -6,8 +6,10 @@ import { HttpserviceService } from '../HttpService/httpservice.service';
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor(private httpService: HttpserviceService) { }
+   token:any;
+  constructor(private httpService: HttpserviceService) { 
+    
+  }
 
   registration(reqdata: any) {
     console.log(reqdata);
