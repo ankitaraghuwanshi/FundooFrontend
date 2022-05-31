@@ -52,7 +52,7 @@
             <div>
                 <mat-nav-list fxLayout="row" fxLayoutAlign="start center">
 
-                    <a mat-list-item routerLink=".">
+                    <a mat-list-item routerLink="./notes">
                         <mat-icon style="padding-right:20px">lightbulb</mat-icon> Notes
                     </a>
                 </mat-nav-list>
@@ -91,9 +91,9 @@
             </div>
 
         </mat-sidenav>
-
+       
         <mat-sidenav-content>
-            body
+          <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

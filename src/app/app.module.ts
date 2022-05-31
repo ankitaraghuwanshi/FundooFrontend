@@ -26,6 +26,12 @@ import { MatIconModule } from '@angular/material/icon';
 
 
 import {MatNativeDateModule} from '@angular/material/core';
+import { CreateNoteComponent } from './Components/create-note/create-note.component';
+import { DisplaynoteComponent } from './Components/displaynote/displaynote.component';
+import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
+import { IconsComponent } from './Components/icons/icons.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -34,17 +40,21 @@ import {MatNativeDateModule} from '@angular/material/core';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateNoteComponent,
+    DisplaynoteComponent,
+    GetAllNotesComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule,FlexLayoutModule,MatCheckboxModule, MatButtonModule,
+    MatInputModule,FlexLayoutModule,MatCheckboxModule, MatButtonModule,MatMenuModule,
    FormsModule,ReactiveFormsModule,
    HttpClientModule,
-   MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule
+   MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule,MatCardModule
     
   ],
   providers: [],
