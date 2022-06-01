@@ -8,7 +8,7 @@ import { HttpserviceService } from '../HttpService/httpservice.service';
 export class UserService {
    token:any;
   constructor(private httpService: HttpserviceService) { 
-    
+    this.token=localStorage.getItem("token"); 
   }
 
   registration(reqdata: any) {
@@ -25,12 +25,12 @@ export class UserService {
   login(reqdata: any) {
     console.log(reqdata);
 
-    let header = {
+    let headeroption = {
       headers: new HttpHeaders({
         'content-type': 'application/json',
       })
     }
-    return this.httpService.postServive(`User/login/${reqdata.email}/${reqdata.password}`, reqdata, false, header)
+    return this.httpService.postServive(`User/login/${reqdata.email}/${reqdata.password}`, reqdata, false, headeroption)
 
   }
   forgotPassword(reqdata: any) {
@@ -39,17 +39,18 @@ export class UserService {
     let header = {
       headers: new HttpHeaders({
         'content-type': 'application/json',
+        'Authorization':'token'
       })
     }
-    return this.httpService.postServive(`User/ForgotPassword/${reqdata.Email}`, reqdata, false, header)
+    return this.httpService.postServive(`User/ForgotPassword/${reqdata.Email}`, reqdata, true, header)
   }
   resetPassword(reqdata: any, token: any) {
     console.log(reqdata)
 
     let header = {
       headers: new HttpHeaders({
-        'content-type': 'application/json',
-        'Authorization': 'Bearer ' + token
+        'Content-Type': 'application/json-patch+json',
+        'Authorization': 'Bearer ' + this.token
       })
 
     }

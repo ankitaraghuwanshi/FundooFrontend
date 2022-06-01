@@ -1,26 +1,27 @@
 <div  fxLayoutAlign="center center" style="margin-top: 30px; margin-left: 20px; " >
-    <div style="width:700px; background-color:rgb(199, 197, 194); border-radius: 5px; ">
-        <div  style="height: 30px; padding: 10px 15px; font-size: medium;" (click)="hideAndShow()" *ngIf="show || !show" >
+    <div style="width:700px; background-color:rgb(241, 240, 237); border-radius: 5px; ">
+        <form [formGroup]="createnoteform" (ngSubmit)="onsubmit()" >
+        <div  style="height: 30px; padding: 10px 15px; font-size: medium;"  *ngIf="show"  >
           
-          <input type="text" #txt class="input" placeholder="Title"  >
-          <img src="../../../assets/takeAnote/checkboximg.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
-          <img src="../../../assets/takeAnote/brushimg.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
-          <img src="../../../assets/takeAnote/imageimg.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
+          <input formControlName="Title"  type="text" #txt class="input" placeholder="Title"  >
+         
         </div>
-        <div style="height: 30px; padding: 10px 15px; font-size: medium;" *ngIf="show" >
-            <input type="text" #txt class="input" placeholder="Description"  >
-            
+        <div style="height: 30px; padding: 10px 15px; font-size: medium;" (click)="hideAndShow()" *ngIf="show || !show"  >
+            <input formControlName="description"  type="text" #txt class="input" placeholder="Take A Note..."  >
+            <img src="../../../assets/note/checkbox.png" style="width: 22px; margin-left:8px; padding-right: 20px;"  >
+            <img src="../../../assets/note/brush.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
+            <img src="../../../assets/note/photo.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
         </div>
 
         <div style="height: 30px;" *ngIf="show" fxLayout="row">
             <app-icons></app-icons>
-            <div style="position: right; padding-left: 300px;">
+            <div class="closebutton" style="position: right; padding-left: 300px;">
              <button mat-button class="closebutton" >Close</button>
             </div>
            
            
         </div>
-        
+    </form>
     </div>
 </div>
 
