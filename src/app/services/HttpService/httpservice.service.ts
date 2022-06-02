@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class HttpserviceService {
-  baseurl=environment.baseUrl;
-  constructor(private httpClient :HttpClient) { }
+  baseurl = environment.baseUrl;
+  constructor(private httpClient: HttpClient) { }
 
-  postServive(url: string, reqdata: any, token: boolean= false, httpOptions: any={}){
-    return this.httpClient.post(this.baseurl+url,reqdata,token && httpOptions)
+  postService(url: string, reqdata: any, token: boolean = false, httpOptions: any = {}) {
+    return this.httpClient.post(this.baseurl + url, reqdata, token && httpOptions)
   }
 
-  getServive(url: string, reqdata: any, token: boolean= false, httpOptions: any={}){
-    return this.httpClient.get(this.baseurl+url, token && httpOptions)
+  getService(url: string = '', tokenRequired: boolean = false, httpOptions: any = {}) {
+
+    return this.httpClient.get(this.baseurl + url, tokenRequired && httpOptions)
   }
 
-  putServive(url: string, reqdata: any, token: boolean= false, httpOptions: any={}){
-    return this.httpClient.put(this.baseurl+url, token && httpOptions)
+  putService(url: string, reqdata: any, token: boolean = false, httpOptions: any = {}) {
+
+    return this.httpClient.put(this.baseurl + url, reqdata, token && httpOptions)
   }
 }

@@ -33,6 +33,10 @@ import { IconsComponent } from './Components/icons/icons.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 
+import { AuthguardserviceService } from './services/Authguard/authguardservice.service';
+import { UpdateComponent } from './Components/update/update.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +48,8 @@ import {MatMenuModule} from '@angular/material/menu';
     CreateNoteComponent,
     DisplaynoteComponent,
     GetAllNotesComponent,
-    IconsComponent
+    IconsComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -54,10 +59,13 @@ import {MatMenuModule} from '@angular/material/menu';
     MatInputModule,FlexLayoutModule,MatCheckboxModule, MatButtonModule,MatMenuModule,
    FormsModule,ReactiveFormsModule,
    HttpClientModule,
-   MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule,MatCardModule
+   MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule,MatCardModule,
+   MatDialogModule
     
   ],
-  providers: [],
+  providers: [
+    AuthguardserviceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,7 +20,7 @@ export class UserService {
 
       })
     }
-    return this.httpService.postServive('User/register', reqdata, false, header)
+    return this.httpService.postService('User/register', reqdata, false, header)
   }
   login(reqdata: any) {
     console.log(reqdata);
@@ -30,7 +30,7 @@ export class UserService {
         'content-type': 'application/json',
       })
     }
-    return this.httpService.postServive(`User/login/${reqdata.email}/${reqdata.password}`, reqdata, false, headeroption)
+    return this.httpService.postService(`User/login/${reqdata.email}/${reqdata.password}`, reqdata, false, headeroption)
 
   }
   forgotPassword(reqdata: any) {
@@ -42,7 +42,7 @@ export class UserService {
         'Authorization':'token'
       })
     }
-    return this.httpService.postServive(`User/ForgotPassword/${reqdata.Email}`, reqdata, true, header)
+    return this.httpService.postService(`User/ForgotPassword/${reqdata.Email}`, reqdata, true, header)
   }
   resetPassword(reqdata: any, token: any) {
     console.log(reqdata)
@@ -54,7 +54,7 @@ export class UserService {
       })
 
     }
-    return this.httpService.putServive('User/ChangePassword', reqdata, true, header)
+    return this.httpService.putService('User/ChangePassword', reqdata, true, header)
   }
 
 

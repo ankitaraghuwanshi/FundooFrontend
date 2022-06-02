@@ -12,6 +12,7 @@ export class CreateNoteComponent implements OnInit {
   show = false;
   submitted=false
   createnoteform!:FormGroup;
+  
   // hide = false
   constructor(private formBuilder: FormBuilder, private Note : NoteService ) { }
  
@@ -36,16 +37,17 @@ export class CreateNoteComponent implements OnInit {
     if (this.createnoteform.valid) {
 
       let reqdata = {
-        title: this.createnoteform.value.Title,
+        title: this.createnoteform.value.title,
         description: this.createnoteform.value.description,
-        // colour:this.createnoteform.value.colour
+       
        colour:"red"
 
       }
-      console.log("anki")
+     
       this.Note.createnote(reqdata).subscribe((response: any) => {
         console.log(response);
       })
     }
   }
+  
 }

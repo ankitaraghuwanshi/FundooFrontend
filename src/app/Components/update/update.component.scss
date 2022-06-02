@@ -1,0 +1,17 @@
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+    background-color:none;
+    border-width: 0px;
+    border: none;
+    outline: none;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+.icon{
+    float: bottom;
+}

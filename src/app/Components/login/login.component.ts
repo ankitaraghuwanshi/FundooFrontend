@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/UserService/user.service';
 
 @Component({
@@ -11,15 +12,19 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   submitted = false;
   token: any;
-  constructor(private formBuilder: FormBuilder, private User: UserService) {
+  Users:any
+  constructor(private formBuilder: FormBuilder, private User: UserService, private router:Router) {
     this.token = localStorage.getItem("token")
   }
 
   ngOnInit(): void {
+    
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
+      
     });
+    localStorage.setItem('SeesionUser',this.Users)  
   }
   OnSubmit() {
     this.submitted = true;
@@ -34,7 +39,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem("token", response.data);
       })
     }
-
+    this.router.navigateByUrl('/dashboard')
 
   }
 }

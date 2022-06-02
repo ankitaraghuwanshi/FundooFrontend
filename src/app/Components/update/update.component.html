@@ -1,0 +1,16 @@
+
+<div class="dialogbox"  >
+    
+    <div  fxLayout="row" fxLayoutAlign="space-between" >
+        <input type="text" [(ngModel)]="title">
+        <img src="../../../assets/dashbord/pin.svg"  style="width: 22px; margin-left:8px; padding-right: 20px; padding-left: 100px;"  >
+    </div>
+
+    <div>
+        <input type="text" [(ngModel)]="description">
+    </div><br><br><br><br><br>
+    <div  fxLayout="row" fxLayoutAlign="space-between">
+        <app-icons class="icon"></app-icons>
+        <button mat-button (click)="onsubmit()">close</button >
+    </div>
+</div>
