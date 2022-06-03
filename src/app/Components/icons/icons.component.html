@@ -1,8 +1,21 @@
-<div fxLayout="row">
-    <img src="../../../assets/note/remind.png" style="width: 18px; margin-left:8px; padding-right: 20px;">
-    <img src="../../../assets/note/palette.png" style="width: 18px; margin-left:8px; padding-right: 20px;">
-    <img src="../../../assets/note/photo.png" style="width: 18px; margin-left:8px; padding-right: 20px;">
-    <img src="../../../assets/note/archive.png" style="width: 18px; margin-left:8px; padding-right: 20px;">
-    <img src="../../../assets/note/more.png" style="width: 18px; margin-left:8px; padding-right: 20px;">
-  
+<div fxLayout="row" fxLayourAlign="center">
+    <div class="first">
+        <img src="../../../assets/note/remind.png" style="width: 17px; margin-left:5px; padding-right: 7px;">
+        <img src="../../../assets/note/palette.png" style="width: 17px; margin-left:5px; padding-right: 7px;">
+        <img src="../../../assets/note/photo.png" style="width: 17px; margin-left:5px; padding-right: 7px;">
+        <img src="../../../assets/note/archive.png" style="width: 17px; margin-left:5px; padding-right: 7px;" (click)="Archive()">
+    </div><br><br><br>
+    
+    <!-- <img src="../../../assets/note/more.png" style="width: 18px; margin-left:8px; padding-right: 20px;"> -->
+<div class="second">
+    <button mat-button [matMenuTriggerFor]="menu"> <img src="../../../assets/note/more.png"
+        style="width: 15px; margin-left:8px; padding-right: 15px;"></button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item  (click)="Trash()">Delete Note</button>
+    <button mat-menu-item>Add label</button>
+    <button mat-menu-item>Add drawing</button>
+    <button mat-menu-item>Make a copy</button>
+</mat-menu>
+</div>
+    
 </div>

@@ -1,7 +1,7 @@
-import { HttpHeaders } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NoteService } from 'src/app/services/NoteService/note.service';
 
@@ -32,9 +32,9 @@ export class UpdateComponent implements OnInit {
     let reqdata = {
       title: this.title,
       description: this.description,
-     colour:"red"
+      colour: "red"
     }
-    this.update.updateNote(reqdata,this.noteId).subscribe((respone:any) => {
+    this.update.updateNote(reqdata, this.noteId).subscribe((respone: any) => {
       console.log('update response: ', respone)
     })
   }

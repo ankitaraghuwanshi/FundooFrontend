@@ -37,6 +37,12 @@ import { AuthguardserviceService } from './services/Authguard/authguardservice.s
 import { UpdateComponent } from './Components/update/update.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { TrashnoteComponent } from './Components/trashnote/trashnote.component';
+import { ArchiveComponent } from './Components/archive/archive.component';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +55,11 @@ import {MatDialogModule} from '@angular/material/dialog';
     DisplaynoteComponent,
     GetAllNotesComponent,
     IconsComponent,
-    UpdateComponent
+    UpdateComponent,
+    TrashnoteComponent,
+    ArchiveComponent,
+    
+    
   ],
   imports: [
     BrowserModule,

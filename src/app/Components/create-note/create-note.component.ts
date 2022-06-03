@@ -37,7 +37,7 @@ export class CreateNoteComponent implements OnInit {
     if (this.createnoteform.valid) {
 
       let reqdata = {
-        title: this.createnoteform.value.title,
+        title: this.createnoteform.value.Title,
         description: this.createnoteform.value.description,
        
        colour:"red"

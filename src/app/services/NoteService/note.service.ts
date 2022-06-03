@@ -28,7 +28,7 @@ export class NoteService {
   }
   getNoteList() {
     this.token = localStorage.getItem('token')
-    console.log("GetAllNote")
+    console.log("Get All Notes")
     let header = {
       headers: new HttpHeaders({
         'Content-Type': ' application/json',
@@ -49,7 +49,37 @@ export class NoteService {
     }
     return this.httpService.putService(`Note/Update/${noteId}`, reqdata, true, header)
   }
+  
+  TrashNote(reqdata: any) {
+    console.log(reqdata);
+    
 
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.putService( `Note/TrashNote/${reqdata.noteId}`, reqdata, true,header );
+  }
+  ArchiveNote(reqdata: any) {
+    console.log(reqdata);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.putService( `Note/ArchieveNote/${reqdata.noteId}`, reqdata, true,header );
+  }
+ 
 }
+  
 
 

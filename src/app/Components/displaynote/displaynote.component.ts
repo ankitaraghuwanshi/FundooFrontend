@@ -9,6 +9,7 @@ import { UpdateComponent } from '../update/update.component';
 })
 export class DisplaynoteComponent implements OnInit {
   @Input() NoteArray:any
+  
   constructor(public dialog: MatDialog) {}
  
   ngOnInit(): void {
