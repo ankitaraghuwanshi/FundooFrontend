@@ -20,16 +20,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
-
-  {
-    path: 'dashboard', component: DashboardComponent,
+  {path:'' ,redirectTo:"/login" ,pathMatch:'full'},
+  
+  {path: 'dashboard', component: DashboardComponent,canActivate:[AuthguardnameGuard],
     children: [
       { path: 'notes', component: GetAllNotesComponent },
       { path: 'trashnote', component: TrashnoteComponent},
       { path: 'archive', component: ArchiveComponent}
     ]
   },
-  {path:'dashboard',component:DashboardComponent,canActivate:[AuthguardnameGuard]}
+  // {path:'dashboard',component:DashboardComponent,canActivate:[AuthguardnameGuard]}
  
 
 ];

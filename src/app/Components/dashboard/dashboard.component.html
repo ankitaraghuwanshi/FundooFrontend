@@ -37,12 +37,13 @@
               
                 <img src="../../../assets/dashbord/app.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
             </div>
-            <div>
-                <!-- <mat-menu #menu="matMenu">
-                    <button mat-menu-item>Item 1</button>
-                    <button mat-menu-item>Item 2</button>
-                  </mat-menu> -->
-                <img src="../../../assets/dashbord/adminimg.png" style="width: 28px; margin-left:8px; padding-right: 20px;">
+            <div >
+                <img src="../../../assets/dashbord/adminimg.png" style="width: 28px; margin-left:8px; padding-right: 20px;" mat-button [matMenuTriggerFor]="menu">
+                <mat-menu #menu="matMenu">
+                  <button (click)=" Logout()" mat-menu-item>Logout</button>
+                 
+                </mat-menu>
+               
             </div>
 
         </div>

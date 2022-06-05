@@ -13,59 +13,59 @@ import { NoteService } from 'src/app/services/NoteService/note.service';
 export class IconsComponent implements OnInit {
   @Input() Card: any;
   noteId: any;
-  // isDeleted:boolean=false
-  // isArchived:boolean=false
+  isTrash: boolean = false;
+  isArchieve: boolean = false;
 
-  constructor(private Note:NoteService ) { }
+  constructor(private Note: NoteService) { }
 
-  ngOnInit(): void {
-    
-    }
-   
-  
+  ngOnInit(): void { }
 
   Trash() {
     let reqdata = {
-      noteId:[this.Card.noteId],
-      isDeleted: true,
+      noteId: [this.Card.noteId],
+      isTrash: true,
 
     }
-    console.log("Trashnote",reqdata)
+    console.log("Trashnote", reqdata)
     this.Note.TrashNote(reqdata).subscribe((response: any) => {
       console.log('notes deleted', response);
-      
-      
+
+
     })
-  } 
-  
+  }
   Archive() {
     let reqdata = {
-      noteId:[this.Card.noteId],
-      isDeleted: true,
+      noteId: [this.Card.noteId],
+      isArchieve: true,
 
     }
-    console.log("Archivenote",reqdata)
+    console.log("Archive note", reqdata)
     this.Note.ArchiveNote(reqdata).subscribe((response: any) => {
-      console.log('notes deleted', response);
-      
+      console.log('notes archived', response);
+
     })
-  } 
-
-//   setColor(color:any){
-//     this.noteObject.Color = color;
-//     let reqData = {
-//       Color:color
-
-//     }
-//     this. NoteService.updateNoteService(reqData,this.noteId).subscribe((res: any) => {
-//       console.log(res); 
-
-//   })
-// }
-} 
+  }
 
 
 
-  
+
+
+
+
+  // Deleteforever() {
+  //   let reqdata = {
+  //     noteIdList: [this.Card.id],
+  //     isDeleted: true,
+  //   }
+  //   this.Card.deleteForever(reqdata).subscribe((response: any) => {
+  //     console.log('permanently deleted', response);
+
+  //   })
+  // }
+}
+
+
+
+
 
 

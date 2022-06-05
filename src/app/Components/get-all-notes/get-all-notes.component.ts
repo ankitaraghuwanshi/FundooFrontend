@@ -10,7 +10,7 @@ export class GetAllNotesComponent implements OnInit {
   notesarray = [];
   constructor(private Note: NoteService) { }
 
-  
+
 
 
   ngOnInit(): void {
@@ -22,8 +22,8 @@ export class GetAllNotesComponent implements OnInit {
         this.notesarray = response.data;
         console.log(response);
         this.notesarray = this.notesarray.filter((object: any) => {
-          return  object.isTrash === false && object.isArchieve ===false;
-        } )
+          return object.isTrash=== false && object.isArchieve === false
+        })
       }
     )
   }

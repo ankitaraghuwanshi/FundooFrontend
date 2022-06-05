@@ -8,23 +8,24 @@ import { NoteService } from 'src/app/services/NoteService/note.service';
   styleUrls: ['./archive.component.scss']
 })
 export class ArchiveComponent implements OnInit {
-  notesarray:any=[];
+  notesarray: any = [];
 
   constructor(private Note: NoteService) { }
 
   ngOnInit(): void {
     this.getarchive()
   }
-  getarchive() {    
+  getarchive() {
     this.Note.getNoteList().subscribe(
       (response: any) => {
 
 
         this.notesarray = response.data;
         console.log(this.notesarray);
+        this.notesarray=response.data
         this.notesarray = this.notesarray.filter((object: any) => {
-          return  object.isArchieve === true;
-        } )
+         return object.isArchieve === true;
+        })
 
       })
   }

@@ -39,7 +39,7 @@ import { UpdateComponent } from './Components/update/update.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TrashnoteComponent } from './Components/trashnote/trashnote.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
-
+import { MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -70,7 +70,7 @@ import { ArchiveComponent } from './Components/archive/archive.component';
    FormsModule,ReactiveFormsModule,
    HttpClientModule,
    MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule,MatCardModule,
-   MatDialogModule
+   MatDialogModule, MatSnackBarModule
     
   ],
   providers: [
