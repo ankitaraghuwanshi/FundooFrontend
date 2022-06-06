@@ -1,4 +1,4 @@
-<div class="example-container">
+<div class="example-container" fxFlex=100 fxLayout.xs="column" fxLayout.xs=100>
     <mat-toolbar color="primary" class="example-toolbar" flexLayout="row" fxLayoutAlign="space-between center">
         <div flexLayout="row" fxLayoutAlign="space-between center">
             <button mat-icon-button (click)="snav.toggle()">
@@ -14,36 +14,40 @@
                 <span style="color: red;">o</span>
             </h2>
         </div>
-        <div class="searchbox">
+        <div class="searchbox"  fxHide.xs>
 
-            <input style="height:48px; width:785px; border:none;  border-radius: 2px; font-size:medium;padding-left: 10px;"
+            <input 
+                style="height:48px; width:785px; border:none;  border-radius: 2px; font-size:medium;padding-left: 10px;"
                 placeholder="search">
         </div>
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <div>
                 <!-- <mat-icon>refresh</mat-icon> -->
-                <img src="../../../assets/dashbord/refresh.png" style="width: 22px; margin-left:8px; padding-right: 20px; ">
+                <img src="../../../assets/dashbord/refresh.png"
+                    style="width: 22px; margin-left:8px; padding-right: 20px; ">
             </div>
             <div>
                 <!-- <mat-icon>view_stream</mat-icon> -->
                 <img src="../../../assets/dashbord/view.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
             </div>
             <div>
-                <img src="../../../assets/dashbord/settings.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
+                <img src="../../../assets/dashbord/settings.png"
+                    style="width: 22px; margin-left:8px; padding-right: 20px;">
             </div>
 
-           
+
             <div>
-              
+
                 <img src="../../../assets/dashbord/app.png" style="width: 22px; margin-left:8px; padding-right: 20px;">
             </div>
-            <div >
-                <img src="../../../assets/dashbord/adminimg.png" style="width: 28px; margin-left:8px; padding-right: 20px;" mat-button [matMenuTriggerFor]="menu">
+            <div>
+                <img src="../../../assets/dashbord/adminimg.png"
+                    style="width: 28px; margin-left:8px; padding-right: 20px;" mat-button [matMenuTriggerFor]="menu">
                 <mat-menu #menu="matMenu">
-                  <button (click)=" Logout()" mat-menu-item>Logout</button>
-                 
+                    <button (click)=" Logout()" mat-menu-item>Logout</button>
+
                 </mat-menu>
-               
+
             </div>
 
         </div>
@@ -95,9 +99,9 @@
             </div>
 
         </mat-sidenav>
-       
+
         <mat-sidenav-content>
-          <router-outlet></router-outlet>
+            <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

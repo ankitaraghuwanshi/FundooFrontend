@@ -4,13 +4,13 @@
         <div  style="height: 30px; padding: 10px 15px; font-size: medium;"  *ngIf="show"  >
           
           <input formControlName="Title"  type="text"  #box class="box" placeholder="Title"  >
-          <img src="../../../assets/dashbord/pin.svg"  *ngIf="show"  style="width: 22px; margin-left:8px; padding-right: 20px; padding-left: 100px;"  >
+          <img src="../../../assets/dashbord/pin.svg"  *ngIf="show"  style=" padding-left: 100px;"  >
         </div>
         <div style="height: 30px; padding: 10px 15px; font-size: medium;" (click)="hideAndShow()" *ngIf="show || !show"  >
             <input formControlName="description"  type="text" #box class="box" placeholder="Take A Note..."  >
-            <img src="../../../assets/note/checkbox.png"  *ngIf="!show"  style="width: 22px; margin-left:8px; padding-right: 20px;"  >
-            <img src="../../../assets/note/brush.png"  *ngIf="!show" style="width: 22px; margin-left:8px; padding-right: 20px;">
-            <img src="../../../assets/note/photo.png"  *ngIf="!show" style="width: 22px; margin-left:8px; padding-right: 20px;">
+            <img src="../../../assets/note/checkbox.png"  *ngIf="!show">
+            <img src="../../../assets/note/brush.png"  *ngIf="!show" >
+            <img src="../../../assets/note/photo.png"  *ngIf="!show" >
         </div>
 
         <div style="height: 40px;" *ngIf="show" fxLayout="row">

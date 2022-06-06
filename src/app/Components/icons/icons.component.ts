@@ -1,24 +1,42 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { NoteService } from 'src/app/services/NoteService/note.service';
-
-
+import { ArchiveComponent } from '../archive/archive.component';
+import { TrashnoteComponent } from '../trashnote/trashnote.component';
 
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
   styleUrls: ['./icons.component.scss']
 })
+
 export class IconsComponent implements OnInit {
-  @Input() Card: any;
+  @Input() Card: any;//
+
   noteId: any;
   isTrash: boolean = false;
   isArchieve: boolean = false;
+  
+  constructor(private Note: NoteService, private snackBar: MatSnackBar, private router: ActivatedRoute) { }
 
-  constructor(private Note: NoteService) { }
+  ngOnInit(): void {
 
-  ngOnInit(): void { }
+    let Compo = this.router.snapshot.component;
+
+    if (Compo == TrashnoteComponent) {
+      this.isTrash = true;
+      console.log("trash is working")
+    }
+
+    
+    let arc = this.router.snapshot.component;
+    if (arc == ArchiveComponent) {
+      this.isArchieve = true;
+      console.log("for unarchive");
+    }
+
+  }
 
   Trash() {
     let reqdata = {
@@ -32,6 +50,8 @@ export class IconsComponent implements OnInit {
 
 
     })
+
+    window.location.reload();//for autorefresh
   }
   Archive() {
     let reqdata = {
@@ -43,26 +63,92 @@ export class IconsComponent implements OnInit {
     this.Note.ArchiveNote(reqdata).subscribe((response: any) => {
       console.log('notes archived', response);
 
+
     })
+    window.location.reload();//for autorefresh
   }
 
+  onUnarchive() {
+    let reqdata = {
+      noteId: [this.Card.noteId],
+      isArchieve:false,
+
+    }
+    console.log("unArchive note", reqdata)
+    this.Note.ArchiveNote(reqdata).subscribe((response: any) => {
+      console.log('notes unarchived is done', response);
 
 
+    })
+   
+  }
+
+  restore()  {
+    let reqdata = {
+      noteId: [this.Card.noteId],
+      isTrash: false,
+
+    }
+    console.log("restore note", reqdata)
+    this.Note.TrashNote(reqdata).subscribe((response: any) => {
+      console.log('working on restore', response);
 
 
+    })
+
+    
+  }
+
+  setColour(colour: any) {
+    this.Card.Colour = colour;
+    let reqdata = {
+      colour: colour,
+      noteId: [this.Card.noteId],
+
+    }
+    this.Note.changecolourNote(reqdata).subscribe(
+      (response: any) => {
+        console.log(response);
+      }
+    )
+
+  }
+
+  colors: Array<any> = [
+    { code: '#e8eaed', name: 'grey' },
+    { code: '#aecbfa', name: 'darkblue' },
+    { code: '#FFFF00', name: 'yellow' },
+    { code: '#d7aefb', name: 'purple' },
+    { code: '#fdcfe8', name: 'pink' },
+    { code: '#e6c9a8', name: 'brown' },
+    { code: '#a7ffeb', name: 'teal' },
+  ];
 
 
-  // Deleteforever() {
-  //   let reqdata = {
-  //     noteIdList: [this.Card.id],
-  //     isDeleted: true,
-  //   }
-  //   this.Card.deleteForever(reqdata).subscribe((response: any) => {
-  //     console.log('permanently deleted', response);
+  Delete() {
+    let reqdata = {
+      noteId: [this.Card.noteId],
+      isTrash: true,
 
-  //   })
-  // }
+    }
+    console.log(" delete note", reqdata)
+    this.Note.DeleteNote(reqdata).subscribe((response: any) => {
+      console.log('permanently deleted', response);
+      this.snackBar.open('note permanently deleted..!!!', '..', {
+        duration: 3000,
+      })
+
+    })
+
+    // window.location.reload();
+  }
 }
+
+
+
+
+
+
 
 
 

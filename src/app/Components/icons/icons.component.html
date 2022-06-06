@@ -1,21 +1,48 @@
 <div fxLayout="row" fxLayourAlign="center">
-    <div class="first">
-        <img src="../../../assets/note/remind.png" style="width: 18px; margin-left:7px; padding-right: 7px;">
-        <img src="../../../assets/note/palette.png" style="width: 18px; margin-left:7px; padding-right: 7px;">
-        <img src="../../../assets/note/photo.png" style="width: 18px; margin-left:7px; padding-right: 7px;">
-        <img src="../../../assets/note/archive.png" style="width: 18px; margin-left:7px; padding-right: 7px;" (click)="Archive()">
-    </div><br><br><br>
-    
-    <!-- <img src="../../../assets/note/more.png" style="width: 18px; margin-left:8px; padding-right: 20px;"> -->
-<div class="second">
-     <img  mat-button [matMenuTriggerFor]="menu" src="../../../assets/note/more.png"
-        style="width: 18px; margin-left:8px; padding-right: 15px;">
-<mat-menu #menu="matMenu">
-    <button mat-menu-item  (click)="Trash()">Delete Note</button>
-    <button mat-menu-item>Add label</button>
-    <button mat-menu-item>Add drawing</button>
-    <button mat-menu-item>Make a copy</button>
-</mat-menu>
+    <div>
+        <img *ngIf="!isTrash" src="../../../assets/note/remind.png">
+        <img *ngIf="!isTrash" mat-button [matMenuTriggerFor]="Colour" 
+        src="../../../assets/note/palette.png">
+      
+        <mat-menu #Colour="matMenu" x-position="below">
+            <div class="colo" *ngFor="let Colour of colors">
+                <button mat-mini-fab [style.background]="Colour?.code" (click)="setColour(Colour.code)"></button>
+            </div>
+        </mat-menu>
+
+        <img *ngIf="!isTrash" src="../../../assets/note/photo.png">
+
+        <img *ngIf="!isArchieve && !isTrash" src="../../../assets/note/archive.png" (click)="Archive()">
+
+
+        <img *ngIf="isArchieve && !isTrash" src="../../../assets/note/unarchive.png" (click)="onUnarchive()">
+
+
+    </div>
+
+    <div>
+        <img *ngIf="!isTrash" mat-button [matMenuTriggerFor]="menu" src="../../../assets/note/more.png">
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="Trash()">Trash</button>
+            <button mat-menu-item>Add Label</button>
+            <button mat-menu-item>Add drawing</button>
+            <button mat-menu-item>Make a copy</button>
+
+        </mat-menu>
+
+    </div>
+    <div *ngIf="isTrash" fxLayout="row" fxLayourAlign="center">
+        <div (click)="Delete()" matTooltip="Delete forever">
+            <img class="icons" src="../../../assets/note/deleteforever.png">
+        </div>
+
+        <div class="buttons" (click)="restore()" matTooltip="Restore">
+            <img class="icons" src="../../../assets/note/restore.png">
+        </div>
+
+    </div>
+
 </div>
-    
-</div>
+
+
+   

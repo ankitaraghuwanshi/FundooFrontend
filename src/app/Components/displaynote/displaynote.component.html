@@ -1,8 +1,8 @@
 
 <div fxLayout="row" class="main" >
-<mat-card class="display" *ngFor="let noteR of NoteArray" >
+<mat-card class="display" *ngFor="let noteR of NoteArray" [style.background]="noteR.Colour" >
     <div  >
-        <div  class="notetitle" (click)="openDialog(noteR)" > 
+        <div  class="notetitle" (click)="openDialog(noteR)"  > 
             
            {{noteR.title}}
            <img src="../../../assets/dashbord/pin.svg"  >  

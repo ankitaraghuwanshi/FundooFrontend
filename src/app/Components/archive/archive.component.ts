@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+
 import { NoteService } from 'src/app/services/NoteService/note.service';
 
 @Component({
@@ -22,12 +22,17 @@ export class ArchiveComponent implements OnInit {
 
         this.notesarray = response.data;
         console.log(this.notesarray);
-        this.notesarray=response.data
+        this.notesarray = response.data
+        this.notesarray.reverse();
+
         this.notesarray = this.notesarray.filter((object: any) => {
-         return object.isArchieve === true;
+          return object.isArchieve === true;
         })
-
+       
+        
       })
-  }
-
+      
+  } 
 }
+
+

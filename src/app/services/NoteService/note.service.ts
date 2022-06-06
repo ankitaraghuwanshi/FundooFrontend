@@ -79,7 +79,50 @@ export class NoteService {
     return this.httpService.putService( `Note/ArchieveNote/${reqdata.noteId}`, reqdata, true,header );
   }
  
+  // colorPallete( noteId: any, colour:any,){
+  //   console.log("token",this.token);
+  
+  //   let header = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       'Authorization': 'Bearer ' + this.token
+  //     })
+  //  }
+  //  return this.httpService.putService(`Note/ChangeColour${noteId}/${colour}`,{}, true, header)
+  // }
+
+  changecolourNote(reqdata: any) {
+    //console.log(reqdata);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.putService(`Note/ChangeColour/${reqdata.noteId}/${reqdata.colour}`, reqdata, true,header );
+  }  
+
+  DeleteNote(reqdata: any) {
+    console.log(reqdata);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    return this.httpService.deleteService( `Note/Delete/${reqdata.noteId}`, true,header );
+  }
 }
+
+
   
 
 

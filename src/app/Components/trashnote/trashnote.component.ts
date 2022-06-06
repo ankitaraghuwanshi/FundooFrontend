@@ -28,6 +28,8 @@ export class TrashnoteComponent implements OnInit {
         })
 
       })
+     
+     
   }
 
   // deleteNote(note: any) {

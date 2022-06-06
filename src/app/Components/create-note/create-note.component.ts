@@ -54,9 +54,8 @@ export class CreateNoteComponent implements OnInit {
         })
         
       })
-      
+      // window.location.reload();
     }
-    
   }
   
 }
