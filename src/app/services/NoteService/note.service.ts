@@ -91,7 +91,7 @@ export class NoteService {
   //  return this.httpService.putService(`Note/ChangeColour${noteId}/${colour}`,{}, true, header)
   // }
 
-  changecolourNote(reqdata: any) {
+  changecolourofNote(reqdata: any) {
     //console.log(reqdata);
     
 

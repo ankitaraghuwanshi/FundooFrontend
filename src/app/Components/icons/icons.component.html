@@ -1,14 +1,23 @@
 <div fxLayout="row" fxLayourAlign="center">
     <div>
         <img *ngIf="!isTrash" src="../../../assets/note/remind.png">
-        <img *ngIf="!isTrash" mat-button [matMenuTriggerFor]="Colour" 
-        src="../../../assets/note/palette.png">
-      
-        <mat-menu #Colour="matMenu" x-position="below">
-            <div class="colo" *ngFor="let Colour of colors">
-                <button mat-mini-fab [style.background]="Colour?.code" (click)="setColour(Colour.code)"></button>
+
+        <!-- <img *ngIf="!isTrash" src="../../../assets/note/palette.png"> -->
+        <img *ngIf="!isTrash" mat-button [matMenuTriggerFor]="colour" src="../../../assets/note/palette.png">
+
+        <mat-menu #colour="matMenu" yPosition="below">
+            <div  class="rang">
+                <div *ngFor="let colour of colorarray">
+                    <button  mat-mini-fab [style.background]="colour?.Colorcode"
+                        (click)="setColour(colour?.Colorcode)"></button>
+                </div>
             </div>
         </mat-menu>
+        <!-- <mat-menu  >
+            <div  *ngFor="let Colour of colorarray" class="colo" >
+                <button class="button"  mat-mini-fab [style.background]="Colour?.Colorcode" (click)="setColour(Colour?.Colorcode)"></button>
+            </div>
+        </mat-menu> -->
 
         <img *ngIf="!isTrash" src="../../../assets/note/photo.png">
 
@@ -43,6 +52,3 @@
     </div>
 
 </div>
-
-
-   

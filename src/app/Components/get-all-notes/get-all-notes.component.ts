@@ -21,10 +21,15 @@ export class GetAllNotesComponent implements OnInit {
       (response: any) => {
         this.notesarray = response.data;
         console.log(response);
+        this.notesarray.reverse();
         this.notesarray = this.notesarray.filter((object: any) => {
           return object.isTrash=== false && object.isArchieve === false
         })
       }
     )
+  }
+  receiveMessagefromdisplaycard($event: any) {
+    console.log("insidegetallnotes", $event);
+    this.getallNote()
   }
 }

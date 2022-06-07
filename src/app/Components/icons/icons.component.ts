@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { NoteService } from 'src/app/services/NoteService/note.service';
@@ -12,7 +12,8 @@ import { TrashnoteComponent } from '../trashnote/trashnote.component';
 })
 
 export class IconsComponent implements OnInit {
-  @Input() Card: any;//
+  @Input() Card: any;
+  @Output() iconstodisplay = new EventEmitter<string>()
 
   noteId: any;
   isTrash: boolean = false;
@@ -47,7 +48,7 @@ export class IconsComponent implements OnInit {
     console.log("Trashnote", reqdata)
     this.Note.TrashNote(reqdata).subscribe((response: any) => {
       console.log('notes deleted', response);
-
+      this.iconstodisplay.emit(response);
 
     })
 
@@ -62,7 +63,7 @@ export class IconsComponent implements OnInit {
     console.log("Archive note", reqdata)
     this.Note.ArchiveNote(reqdata).subscribe((response: any) => {
       console.log('notes archived', response);
-
+      this.iconstodisplay.emit(response);
 
     })
     window.location.reload();//for autorefresh
@@ -106,7 +107,7 @@ export class IconsComponent implements OnInit {
       noteId: [this.Card.noteId],
 
     }
-    this.Note.changecolourNote(reqdata).subscribe(
+    this.Note.changecolourofNote(reqdata).subscribe(
       (response: any) => {
         console.log(response);
       }
@@ -114,17 +115,19 @@ export class IconsComponent implements OnInit {
 
   }
 
-  colors: Array<any> = [
-    { code: '#e8eaed', name: 'grey' },
-    { code: '#aecbfa', name: 'darkblue' },
-    { code: '#FFFF00', name: 'yellow' },
-    { code: '#d7aefb', name: 'purple' },
-    { code: '#fdcfe8', name: 'pink' },
-    { code: '#e6c9a8', name: 'brown' },
-    { code: '#a7ffeb', name: 'teal' },
-  ];
+  colorarray: Array<any> = [
+  {Colorcode:"pink"},
+  {Colorcode:"yellow"},
+  {Colorcode:"orange"},
+  {Colorcode:"rgb(255,99,71)"},
+  {Colorcode:"rgb(152,251,152)"},
+  {Colorcode:"Teal"},
+  {Colorcode:"rgb(106,90,205)"},
+  {Colorcode:"rgb(240,230,140)"},
+  {Colorcode:"rgb(238,130,238)"},
+  {Colorcode:"rgb(255,160,122)"}];
 
-
+ 
   Delete() {
     let reqdata = {
       noteId: [this.Card.noteId],
