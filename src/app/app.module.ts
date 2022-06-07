@@ -40,6 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TrashnoteComponent } from './Components/trashnote/trashnote.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -58,6 +59,7 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
     UpdateComponent,
     TrashnoteComponent,
     ArchiveComponent,
+    FilterPipe,
     
     
   ],

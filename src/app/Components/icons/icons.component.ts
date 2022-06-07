@@ -14,7 +14,7 @@ import { TrashnoteComponent } from '../trashnote/trashnote.component';
 export class IconsComponent implements OnInit {
   @Input() Card: any;
   @Output() iconstodisplay = new EventEmitter<string>()
-
+  NoteListId:any;
   noteId: any;
   isTrash: boolean = false;
   isArchieve: boolean = false;
@@ -101,7 +101,7 @@ export class IconsComponent implements OnInit {
   }
 
   setColour(colour: any) {
-    this.Card.Colour = colour;
+    this.NoteListId=this.Card.Colour = colour;
     let reqdata = {
       colour: colour,
       noteId: [this.Card.noteId],
@@ -115,7 +115,7 @@ export class IconsComponent implements OnInit {
 
   }
 
-  colorarray: Array<any> = [
+  colorarray= [
   {Colorcode:"pink"},
   {Colorcode:"yellow"},
   {Colorcode:"orange"},

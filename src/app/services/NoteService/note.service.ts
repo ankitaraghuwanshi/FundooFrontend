@@ -79,20 +79,8 @@ export class NoteService {
     return this.httpService.putService( `Note/ArchieveNote/${reqdata.noteId}`, reqdata, true,header );
   }
  
-  // colorPallete( noteId: any, colour:any,){
-  //   console.log("token",this.token);
-  
-  //   let header = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer ' + this.token
-  //     })
-  //  }
-  //  return this.httpService.putService(`Note/ChangeColour${noteId}/${colour}`,{}, true, header)
-  // }
-
   changecolourofNote(reqdata: any) {
-    //console.log(reqdata);
+    console.log(reqdata);
     
 
     let header = {
