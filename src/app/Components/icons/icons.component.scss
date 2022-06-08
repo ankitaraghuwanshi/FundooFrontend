@@ -1,15 +1,7 @@
 img{
     width: 18px; margin-left:7px; padding-right: 14px;height:18px;
 }
-// .colo{
-//     display: flex;
-//     flex-wrap: wrap;
-//     display:table-row;
-//     flex-direction: row;
-//     background-color: rgb(241, 238, 238);
-//     max-width: 100px;
-//     margin-left: 5px;
-// }
+
 .button{
     border: none;
     outline: none;
@@ -21,8 +13,8 @@ img{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-color: rgb(17, 16, 16);
+    background-color: white;
     max-width: 202px;
     margin: 2px;
-    
+  
 }

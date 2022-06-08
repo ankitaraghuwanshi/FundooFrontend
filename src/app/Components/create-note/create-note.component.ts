@@ -42,7 +42,7 @@ export class CreateNoteComponent implements OnInit {
         title: this.createnoteform.value.Title,
         description: this.createnoteform.value.description,
        
-       colour:"red"
+       colour:""
 
       }
      
@@ -54,7 +54,7 @@ export class CreateNoteComponent implements OnInit {
         })
         
       })
-      // window.location.reload();
+      
     }
   }
   

@@ -47,12 +47,12 @@ export class IconsComponent implements OnInit {
     }
     console.log("Trashnote", reqdata)
     this.Note.TrashNote(reqdata).subscribe((response: any) => {
-      console.log('notes deleted', response);
+      console.log('notes in trash', response);
       this.iconstodisplay.emit(response);
 
     })
 
-    window.location.reload();//for autorefresh
+   
   }
   Archive() {
     let reqdata = {
@@ -66,7 +66,7 @@ export class IconsComponent implements OnInit {
       this.iconstodisplay.emit(response);
 
     })
-    window.location.reload();//for autorefresh
+  
   }
 
   onUnarchive() {
@@ -100,16 +100,17 @@ export class IconsComponent implements OnInit {
     
   }
 
-  setColour(colour: any) {
-    this.NoteListId=this.Card.Colour = colour;
+  setColour(color: any) {
+   this.Card.colour=color
     let reqdata = {
-      colour: colour,
+      colour: color,
       noteId: [this.Card.noteId],
 
     }
     this.Note.changecolourofNote(reqdata).subscribe(
       (response: any) => {
         console.log(response);
+        this.iconstodisplay.emit(response);
       }
     )
 
@@ -143,7 +144,7 @@ export class IconsComponent implements OnInit {
 
     })
 
-    // window.location.reload();
+   
   }
 }
 

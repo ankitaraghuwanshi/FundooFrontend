@@ -91,7 +91,7 @@ export class NoteService {
 
       }),
     };
-    return this.httpService.putService(`Note/ChangeColour/${reqdata.noteId}/${reqdata.colour}`, reqdata, true,header );
+    return this.httpService.putService(`Note/ChangeColour/${reqdata.noteId}/${reqdata.colour}`,{}, true,header );
   }  
 
   DeleteNote(reqdata: any) {

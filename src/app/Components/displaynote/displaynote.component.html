@@ -1,6 +1,6 @@
 
 <div fxLayout="row" class="main" >
-<mat-card class="display" *ngFor="let noteR of NoteArray | filter:searchword" [style.background]="noteR.Colour" >
+<mat-card class="display" *ngFor="let noteR of NoteArray | filter:searchword" [style.background]="noteR.colour" >
     <div  >
         <div  class="notetitle" (click)="openDialog(noteR)"  > 
             
