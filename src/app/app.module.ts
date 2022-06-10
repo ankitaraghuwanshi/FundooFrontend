@@ -41,6 +41,7 @@ import { TrashnoteComponent } from './Components/trashnote/trashnote.component';
 import { ArchiveComponent } from './Components/archive/archive.component';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LabelComponent } from './Components/label/label.component';
 
 
 
@@ -60,6 +61,7 @@ import { FilterPipe } from './pipes/filter.pipe';
     TrashnoteComponent,
     ArchiveComponent,
     FilterPipe,
+    LabelComponent,
     
     
   ],
@@ -72,7 +74,7 @@ import { FilterPipe } from './pipes/filter.pipe';
    FormsModule,ReactiveFormsModule,
    HttpClientModule,
    MatSidenavModule,MatToolbarModule,MatIconModule ,MatListModule,MatNativeDateModule,MatCardModule,
-   MatDialogModule, MatSnackBarModule
+   MatDialogModule, MatSnackBarModule,
     
   ],
   providers: [

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataService } from 'src/app/services/data.service';
+import { LabelComponent } from '../label/label.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 
 @Component({
@@ -17,10 +20,10 @@ export class DashboardComponent implements OnInit {
   message: any
   value: any
 
-
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private snackBar: MatSnackBar, private data: DataService) {
+
+  constructor(public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private snackBar: MatSnackBar, private data: DataService,) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -48,4 +51,20 @@ export class DashboardComponent implements OnInit {
       duration: 3000,
     })
   }
+
+ 
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LabelComponent, {
+      width: 'auto',
+      height:'auto',
+    
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+    });
+  }
 }
+

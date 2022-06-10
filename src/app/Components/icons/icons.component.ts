@@ -55,6 +55,7 @@ export class IconsComponent implements OnInit {
    
   }
   Archive() {
+    
     let reqdata = {
       noteId: [this.Card.noteId],
       isArchieve: true,

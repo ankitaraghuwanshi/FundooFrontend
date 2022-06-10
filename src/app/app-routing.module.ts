@@ -5,6 +5,7 @@ import { ArchiveComponent } from './Components/archive/archive.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
+import { LabelComponent } from './Components/label/label.component';
 
 import { LoginComponent } from './Components/login/login.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
@@ -24,12 +25,14 @@ const routes: Routes = [
   
   {path: 'dashboard', component: DashboardComponent,canActivate:[AuthguardnameGuard],
     children: [
+      {path:'', redirectTo:"/dashboard/notes", pathMatch:'full' },
       { path: 'notes', component: GetAllNotesComponent },
       { path: 'trashnote', component: TrashnoteComponent},
-      { path: 'archive', component: ArchiveComponent}
+      { path: 'archive', component: ArchiveComponent},
+      {path: 'label', component:LabelComponent}
     ]
   },
-  // {path:'dashboard',component:DashboardComponent,canActivate:[AuthguardnameGuard]}
+ 
  
 
 ];

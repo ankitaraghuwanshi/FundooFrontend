@@ -1,0 +1,19 @@
+::ng-deep.mat-typography h1 {
+    font: 363 19px/32px Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+    /* margin: 0 0 16px; */
+    border:none
+}
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom: 2px;
+    background-color:none;
+    border-width: 0px;
+    border: none;
+    outline: none;
+}
+img{
+    width: 22px; margin-left:8px; padding-right: 20px; 
+}

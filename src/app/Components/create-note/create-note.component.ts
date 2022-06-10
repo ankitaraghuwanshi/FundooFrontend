@@ -10,6 +10,7 @@ import { NoteService } from 'src/app/services/NoteService/note.service';
   styleUrls: ['./create-note.component.scss']
 })
 export class CreateNoteComponent implements OnInit {
+ 
   show = false;
   submitted=false
   createnoteform!:FormGroup;
@@ -42,12 +43,13 @@ export class CreateNoteComponent implements OnInit {
         title: this.createnoteform.value.Title,
         description: this.createnoteform.value.description,
        
-       colour:""
+        colour:"no colour"
 
       }
-     
+     console.log("hiii")
       this.Note.createnote(reqdata).subscribe((response: any) => {
         console.log(response);
+
        
         this.snackBar.open('note created Successfully..!!!','..', {
           duration: 3000,

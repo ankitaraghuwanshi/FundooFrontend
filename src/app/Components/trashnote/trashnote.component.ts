@@ -7,7 +7,7 @@ import { NoteService } from 'src/app/services/NoteService/note.service';
   styleUrls: ['./trashnote.component.scss']
 })
 export class TrashnoteComponent implements OnInit {
-  notesarray: any = [];
+  trashsarray: any = [];
 
   constructor(private Note: NoteService) { }
 
@@ -19,11 +19,11 @@ export class TrashnoteComponent implements OnInit {
       (response: any) => {
 
 
-        this.notesarray = response.data;
-        console.log(this.notesarray);
-        this.notesarray = response.data;
-        this.notesarray.reverse();
-        this.notesarray = this.notesarray.filter((object: any) => {
+        this.trashsarray = response.data;
+        console.log(this.trashsarray);
+        this.trashsarray = response.data;
+        this.trashsarray.reverse();
+        this.trashsarray = this.trashsarray.filter((object: any) => {
           return object.isTrash === true;
         })
 
