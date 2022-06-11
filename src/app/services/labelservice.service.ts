@@ -25,4 +25,15 @@ token:any
     return this.httpservice.postService('Label/CreateLabel', reqdata, true, header)
   }
 
+  getAllLable(userId :any) {
+
+    let header = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json-patch+json',
+        'Authorization':'Bearer ' + this.token
+      })
+    }
+    return this.httpservice.getService(`Label/GetLabelByuserId/${userId }`, true, header)
+  }
+
 }

@@ -13,12 +13,21 @@
     </div>
 
   </div>
-  
+
   <div fxLayout="row" fxLayoutAlign="space-between end">
     <img src="../../../assets/label/label.png" (mouseover)="show()" *ngIf="!isDelete">
-    <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/note/deleteforever.png">
+    <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/note/deleteforever.png" >
     {{lableName}}
     <img src="../../../assets/label/edit.png">
 
   </div>
+ 
+  <div *ngFor="let LabelA of lableArray">
+    <mat-nav-list fxLayout="row"  >
+        <a mat-list-item>
+            <img style="width:20px;height:18px" src="../../../assets/label/lab.png" alt="">
+            {{LabelA.labelName}}
+        </a>
+    </mat-nav-list>
+</div>
 </div>

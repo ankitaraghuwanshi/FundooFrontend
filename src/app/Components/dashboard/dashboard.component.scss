@@ -59,3 +59,10 @@
   border:1px solid grey;
   border-radius: 2px;
 }
+::ng-deep.mat-list-base {
+  display: block;
+  height: 37px;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  padding: 0;
+}

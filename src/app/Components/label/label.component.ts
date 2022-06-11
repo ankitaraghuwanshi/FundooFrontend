@@ -17,6 +17,9 @@ export class LabelComponent implements OnInit {
   lableName: any;
   isLable: boolean = false;
   isDelete: boolean = false;
+  LabelName:any;
+  lableArray:any=[];
+  userId :any;
 
 
   constructor(private lable: LabelserviceService) {}
@@ -29,7 +32,9 @@ export class LabelComponent implements OnInit {
     this.isDelete = !this.isDelete
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllLable();
+  }
  
   onCreate() {
 
@@ -45,6 +50,19 @@ export class LabelComponent implements OnInit {
 
     });
   }
+ getAllLable() { 
+    let reqdata = {
+      userId : [this.lableArray.userId ],
+    }
+    console.log(this.userId )
+  
+    this.lable.getAllLable(reqdata).subscribe((response: any) => {
+        this.lableArray = response.data;
+        console.log(response);
+        this.lableArray.reverse();
+    })
+  }
+  
 }
 
   

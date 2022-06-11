@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DataService } from 'src/app/services/data.service';
 import { LabelComponent } from '../label/label.component';
 import { MatDialog } from '@angular/material/dialog';
+import { LabelserviceService } from 'src/app/services/labelservice.service';
 
 
 
@@ -19,11 +20,14 @@ export class DashboardComponent implements OnInit {
   token: any
   message: any
   value: any
+  LabelName:any;
+  lableArray:any=[];
+  userId :any;
 
   private _mobileQueryListener: () => void;
 
 
-  constructor(public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private snackBar: MatSnackBar, private data: DataService,) {
+  constructor(private  getLable:LabelserviceService,public dialog: MatDialog, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, private snackBar: MatSnackBar, private data: DataService,) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -31,7 +35,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.mobileQuery.addListener(this._mobileQueryListener);
-    ;
+   
+    this.getAllLable();
   }
 
   searchtitle(event: any) {
@@ -57,14 +62,27 @@ export class DashboardComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(LabelComponent, {
       width: 'auto',
-      height:'auto',
-    
+      
+    data:this.lableArray
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
      
     });
+  }
+
+  getAllLable() { 
+    let reqdata = {
+      userId : [this.lableArray.userId ],
+    }
+    console.log(this.userId )
+  
+    this.getLable.getAllLable(reqdata).subscribe((response: any) => {
+        this.lableArray = response.data;
+        console.log(response);
+        this.lableArray.reverse();
+    })
   }
 }
 
