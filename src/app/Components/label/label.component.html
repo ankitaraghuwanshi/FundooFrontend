@@ -1,5 +1,5 @@
 <div>
-  <span>Edit Label</span>
+  <span style="font-size: large;">Edit Label</span>
   <div fxLayout="row" style="margin-top: 20px;">
 
     <div>
@@ -14,20 +14,19 @@
 
   </div>
 
-  <div fxLayout="row" fxLayoutAlign="space-between end">
-    <img src="../../../assets/label/label.png" (mouseover)="show()" *ngIf="!isDelete">
-    <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/note/deleteforever.png" >
-    {{lableName}}
-    <img src="../../../assets/label/edit.png">
+  <div class="icons" *ngFor="let LabelA of lableArray" fxLayout="row" fxLayoutAlign="space-between end">
+    <div>
+      <img src="../../../assets/label/download.svg" (mouseover)="show()" *ngIf="!isDelete">
+      <img (mouseout)="show()" *ngIf="isDelete" src="../../../assets/label/deletelabel.svg" (click)="Deletelabel(LabelA)" > 
+      {{LabelA.labelName}}
+    </div>
+    <div>
+      <img src="../../../assets/label/editpencil.svg">
+    </div>
+
+
 
   </div>
- 
-  <div *ngFor="let LabelA of lableArray">
-    <mat-nav-list fxLayout="row"  >
-        <a mat-list-item>
-            <img style="width:20px;height:18px" src="../../../assets/label/lab.png" alt="">
-            {{LabelA.labelName}}
-        </a>
-    </mat-nav-list>
-</div>
+
+
 </div>

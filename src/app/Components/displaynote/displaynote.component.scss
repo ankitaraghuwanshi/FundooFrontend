@@ -17,4 +17,9 @@ img{
 .notetitle{
     padding-top: 2px;
     padding-bottom: 5px;
+    font-size: 19px;
+}
+::ng-deep.mat-card {
+    background: #fff;
+    color: rgb(22 13 13 / 87%);
 }

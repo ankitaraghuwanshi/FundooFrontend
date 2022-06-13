@@ -50,7 +50,7 @@
  }
  mat-nav-list a{
      border-top-right-radius: 20px;
-    //  border-bottom-right-radius: 20px;
+   
  }
  
  .searchbox{
@@ -61,8 +61,21 @@
 }
 ::ng-deep.mat-list-base {
   display: block;
-  height: 37px;
+  height: 38px;
   -webkit-tap-highlight-color: transparent;
   width: 100%;
   padding: 0;
+}
+::ng-deep.cdk-overlay-dark-backdrop {
+  background: rgb(0 0 0 / 54%);
+}
+::ng-deep .mat-typography {
+  font: 407 14px/20px Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: normal;
+
+  
+}
+::ng-deep.mat-list-base .mat-list-item {
+  color: black;
+  font-size: small;
 }

@@ -36,4 +36,19 @@ token:any
     return this.httpservice.getService(`Label/GetLabelByuserId/${userId }`, true, header)
   }
 
+  DeletelabelbylabelId(reqdata: any) {
+    console.log(reqdata);
+    
+
+    let header = {
+      headers: new HttpHeaders({
+        
+        'Content-Type': 'application/json',
+        'Authorization' : 'Bearer '+ this.token,
+
+      }),
+    };
+    
+    return this.httpservice.deleteService( `Label/DeleteLabel/${reqdata.labelId}`, true,header );
+  }
 }

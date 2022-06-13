@@ -13,8 +13,33 @@ input {
     border-width: 0px;
     border: none;
     outline: none;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgb(187, 169, 169);
 }
 img{
     width: 22px; margin-left:8px; padding-right: 10px; 
     height: 20px;
 }
+
+.icons{
+opacity: .6;
+font-size: small;
+
+}
+::ng-deep.cdk-overlay-dark-backdrop {
+    background: rgb(0 0 0 / 54%);
+}
+::ng-deep .mat-typography {
+    font: 407 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+  
+    
+}
+::ng-deep.mat-list-base .mat-list-item {
+    color: black;
+    font-size: small;
+    
+}
+
+
+

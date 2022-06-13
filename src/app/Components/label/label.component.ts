@@ -1,4 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -20,9 +21,10 @@ export class LabelComponent implements OnInit {
   LabelName:any;
   lableArray:any=[];
   userId :any;
+  
+ 
 
-
-  constructor(private lable: LabelserviceService) {}
+  constructor(private lable: LabelserviceService,private snackBar:MatSnackBar) {}
   hideAndShow() {
     console.log("calling hide")
     this.isLable = !this.isLable
@@ -54,7 +56,7 @@ export class LabelComponent implements OnInit {
     let reqdata = {
       userId : [this.lableArray.userId ],
     }
-    console.log(this.userId )
+    // console.log(this.userId,"anki  raghu" )
   
     this.lable.getAllLable(reqdata).subscribe((response: any) => {
         this.lableArray = response.data;
@@ -63,6 +65,25 @@ export class LabelComponent implements OnInit {
     })
   }
   
+  
+  Deletelabel(LabelA:any) {
+    let reqdata = {
+     
+      labelId : LabelA.labelId
+     
+
+    }
+    console.log(" delete label", reqdata)
+    this.lable.DeletelabelbylabelId(reqdata).subscribe((response: any) => {
+      console.log('label deleted', response);
+      this.snackBar.open('label permanently deleted..!!!', '..', {
+        duration: 3000,
+      })
+
+    })
+
+   
+  }
 }
 
   
