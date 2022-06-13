@@ -32,4 +32,8 @@ export class GetAllNotesComponent implements OnInit {
     console.log("insidegetallnotes", $event);
     this.getallNote()
   }
+  receiveEvent($event:any){
+    this.getallNote()
+  }
+ 
 }

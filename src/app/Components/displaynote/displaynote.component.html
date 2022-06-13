@@ -1,21 +1,20 @@
+<div fxLayout="row" class="main">
+    <mat-card class="display" *ngFor="let noteR of NoteArray | filter:searchword" [style.background]="noteR.colour">
+        <div>
+            <div class="notetitle" (click)="openDialog(noteR)">
 
-<div fxLayout="row" class="main" >
-<mat-card class="display" *ngFor="let noteR of NoteArray | filter:searchword" [style.background]="noteR.colour" >
-    <div  >
-        <div  class="notetitle" (click)="openDialog(noteR)"  > 
-            
-           {{noteR.title}}
-           <img src="../../../assets/dashbord/pin.svg"  >  
-        </div>
-        <div (click)="openDialog(noteR)" style="padding-top: 10px;">
-            {{noteR.description}}    
-           
-        </div>
-        
-    </div><br>
+                {{noteR.title}}
+                <img src="../../../assets/dashbord/pin.svg">
+            </div>
+            <div (click)="openDialog(noteR)" style="padding-top: 10px;">
+                {{noteR.description}}
 
-    <div >
-        <app-icons [Card]="noteR" (iconstodisplay)="recievefromiconstodisplaycard($event)"></app-icons>
-    </div>
-</mat-card>
+            </div>
+
+        </div><br>
+
+        <div>
+            <app-icons [Card]="noteR" (iconstodisplay)="recievefromiconstodisplaycard($event)"></app-icons>
+        </div>
+    </mat-card>
 </div>

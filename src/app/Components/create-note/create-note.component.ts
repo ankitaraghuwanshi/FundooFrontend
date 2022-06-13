@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/services/NoteService/note.service';
@@ -10,7 +10,7 @@ import { NoteService } from 'src/app/services/NoteService/note.service';
   styleUrls: ['./create-note.component.scss']
 })
 export class CreateNoteComponent implements OnInit {
- 
+   @Output() createtogetallnotes=new EventEmitter<string>();
   show = false;
   submitted=false
   createnoteform!:FormGroup;
@@ -49,7 +49,7 @@ export class CreateNoteComponent implements OnInit {
      console.log("hiii")
       this.Note.createnote(reqdata).subscribe((response: any) => {
         console.log(response);
-
+        this.createtogetallnotes.emit(response)
        
         this.snackBar.open('note created Successfully..!!!','..', {
           duration: 3000,

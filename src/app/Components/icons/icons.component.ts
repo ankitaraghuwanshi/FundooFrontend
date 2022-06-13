@@ -14,6 +14,7 @@ import { TrashnoteComponent } from '../trashnote/trashnote.component';
 export class IconsComponent implements OnInit {
   @Input() Card: any;
   @Output() iconstodisplay = new EventEmitter<string>()
+  
   NoteListId:any;
   noteId: any;
   isTrash: boolean = false;
@@ -79,7 +80,7 @@ export class IconsComponent implements OnInit {
     console.log("unArchive note", reqdata)
     this.Note.ArchiveNote(reqdata).subscribe((response: any) => {
       console.log('notes unarchived is done', response);
-
+      this.iconstodisplay.emit(response);
 
     })
    
@@ -94,7 +95,7 @@ export class IconsComponent implements OnInit {
     console.log("restore note", reqdata)
     this.Note.TrashNote(reqdata).subscribe((response: any) => {
       console.log('working on restore', response);
-
+      this.iconstodisplay.emit(response);
 
     })
 
@@ -139,6 +140,7 @@ export class IconsComponent implements OnInit {
     console.log(" delete note", reqdata)
     this.Note.DeleteNote(reqdata).subscribe((response: any) => {
       console.log('permanently deleted', response);
+      this.iconstodisplay.emit(response);
       this.snackBar.open('note permanently deleted..!!!', '..', {
         duration: 3000,
       })
@@ -147,6 +149,7 @@ export class IconsComponent implements OnInit {
 
    
   }
+  
 }
 
 

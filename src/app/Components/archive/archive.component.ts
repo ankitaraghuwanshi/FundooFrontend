@@ -9,7 +9,7 @@ import { NoteService } from 'src/app/services/NoteService/note.service';
 })
 export class ArchiveComponent implements OnInit {
   notesarray: any = [];
-
+  sentmsg:any;
   constructor(private Note: NoteService) { }
 
   ngOnInit(): void {
@@ -32,7 +32,8 @@ export class ArchiveComponent implements OnInit {
         
       })
       
-  } 
+  }
+ 
 }
 
 
